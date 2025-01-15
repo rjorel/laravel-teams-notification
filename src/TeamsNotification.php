@@ -24,7 +24,9 @@ class TeamsNotification
     public function __construct($webhookUrl = null)
     {
         $this->webhookUrl = $webhookUrl ?: config('teams.webhook_url');
-        $this->client = new Client(); // Initialize Guzzle client
+        $this->client = new Client([
+            'verify' => config('teams.verify_ssl', true)
+        ]); // Initialize Guzzle client
     }
 
     // Method to set the color and allow chaining
