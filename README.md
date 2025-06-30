@@ -210,5 +210,3 @@ For a detailed guide on integrating Microsoft Teams notifications with your Lara
 
 This package is open-sourced software licensed under the [MIT license](LICENSE).
 ```
-
-This README now includes a Table of Contents section that links to different parts of the document for easier navigation.
