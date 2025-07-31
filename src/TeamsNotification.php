@@ -125,7 +125,7 @@ class TeamsNotification
                             "items" => [
                                 [
                                     "type" => "TextBlock",
-                                    "text" => is_array($value)?json_encode($value,JSON_PRETTY_PRINT):$value,
+                                    "text" => $this->formatValue($value),
                                     "wrap" => true
                                 ]
                             ],
@@ -153,6 +153,15 @@ class TeamsNotification
                 ]
             ]
         ];
+    }
+
+    private function formatValue($value): string
+    {
+        if (is_array($value) || is_object($value)) {
+            json_encode((array) $value, JSON_PRETTY_PRINT);
+        }
+
+        return (string) $value;
     }
 
     // Method to build the adaptive card for an exception message
